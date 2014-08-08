@@ -76,9 +76,25 @@ if (Meteor.isClient) {
             return moment().format("h:mm a");
         },
         duration: function() {
-            var a = moment( Session.get("currentDay").startTime);
-            return moment( a ).fromNow();
+            var temp = Session.get("currentDay");
+            console.log(temp);
+            var a = moment( temp.iso8601);
+            var milli = moment().diff(a);
+            var d = moment.duration(milli, 'milliseconds');
+            var hours = Math.floor(d.asHours());
+            var mins = Math.floor(d.asMinutes()) - hours * 60;
+            return hours + " hours, " + mins + " mins";
         },
+        pay: function() {
+            var temp = Session.get("currentDay");
+            console.log(temp);
+            var a = moment( temp.iso8601);
+            var milli = moment().diff(a);
+            var d = moment.duration(milli, 'milliseconds');
+            var hours = Math.floor(d.asHours());
+            var mins = Math.floor(d.asMinutes()) - hours * 60;
+            return "$"+(hours + mins/60)*15;
+        }
   });
 
   Template.today.events({
