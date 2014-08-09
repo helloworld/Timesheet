@@ -136,7 +136,7 @@ if (Meteor.isClient) {
       Days.update(Session.get("currentDay")._id, {$set: {endTime: moment().format("h:mm a"), duration: durationString, pay: payAmount }});
       $('#confirmModal').modal('hide')
 
-      Router.go('/')
+      Router.go('/overview')
     }
   });
 

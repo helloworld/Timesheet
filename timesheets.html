@@ -13,20 +13,20 @@
         <span class="icon-bar">
         </span>
       </button>
-      <a class="navbar-brand" href="#" title="Timesheets">
+      <a class="navbar-brand" href="{{pathFor 'home'}}" title="Timesheets">
         Timesheets
       </a>
     </div>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li class="active">
-          <a href="#">
-            Active
+          <a href="{{pathFor 'today'}}">
+            Today
           </a>
         </li>
         <li>
-          <a href="#">
-            Link
+          <a href="{{pathFor 'overview'}}">
+            Overview
           </a>
         </li>
       </ul>
